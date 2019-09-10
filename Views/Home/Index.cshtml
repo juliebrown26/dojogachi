@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1>Dojodachi</h1>
+    <div class="row" style="margin-top: 25px; margin-bottom: 10px">
+        <div class="col">
+            <h3>Fullness: @ViewBag.DachiInfo.fullness</h3>
+        </div>
+        <div class="col">
+            <h3>Happiness: @ViewBag.DachiInfo.happiness</h3>
+        </div>
+        <div class="col">
+            <h3>Meals: @ViewBag.DachiInfo.meals</h3>
+        </div>
+        <div class="col">
+            <h3>Energy: @ViewBag.DachiInfo.energy</h3>
+        </div>
+    </div>
+    <div class="row" style="justify-content: center">
+        <div class="dachi" style="height: 350px; width: 600px; border: 2px solid black">
+            <div class="icon" style="border: 1px solid black; width: 200px; height: 200px; margin: 30px 205px;">
+                <img src="~/images/dojodachi.png" alt="blue monster" style="width: 200px; height: 200px;">
+            </div>
+            <div class="status">
+                <h6>@ViewBag.DachiInfo.status</h6>
+            </div>
+        </div>
+    </div>
+        <div class="row"style="margin-top: 25px">
+        @{if(ViewBag.DachiInfo.status != "Uh oh. Your dachi has died." && ViewBag.DachiInfo.status != "Hooray! You are a great dachi friend!"){
+            <div class="col">
+                <form action="Feed" method="get">
+                    <button type="submit" class="btn btn-primary">Feed</button>
+                </form>
+            </div>
+            <div class="col">
+                <form action="Play" method="get">
+                    <button type="submit" class="btn btn-primary">Play</button>
+                </form>
+            </div>
+            <div class="col">
+                <form action="Work" method="get">
+                    <button type="submit" class="btn btn-primary">Work</button>
+                </form>
+            </div>
+            <div class="col">
+                <form action="Sleep" method="get">
+                    <button type="submit" class="btn btn-primary">Sleep</button>
+                </form>
+            </div>
+        } else {
+            <div class="col">
+                <form action="Reset" method="get">
+                    <button type="submit" class="btn btn-primary">Reset</button>
+                </form>
+            </div>
+        }} 
+    </div>
+</div>
